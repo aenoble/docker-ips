@@ -1,0 +1,2 @@
+#!/bin/bash
+docker ps | awk '{print $1}' | tail -n +2 | xargs docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
